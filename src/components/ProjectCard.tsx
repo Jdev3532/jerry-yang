@@ -12,6 +12,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, company, role, index, inView }: ProjectCardProps) {
+  const hasLinks = project.githubUrl || project.demoUrl;
+
   return (
     <motion.div
       className="card-surface overflow-hidden card-surface-hover transition-all duration-300 group flex flex-col"
@@ -27,10 +29,12 @@ export default function ProjectCard({ project, company, role, index, inView }: P
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        <div className="absolute top-3 right-3 flex items-center gap-1 bg-background/80 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-medium">
-          <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
-          {project.stars}
-        </div>
+        {project.stars && (
+          <div className="absolute top-3 right-3 flex items-center gap-1 bg-background/80 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs font-medium">
+            <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
+            {project.stars}
+          </div>
+        )}
       </Link>
 
       <div className="p-5 flex flex-col flex-1">
@@ -47,22 +51,37 @@ export default function ProjectCard({ project, company, role, index, inView }: P
         </div>
 
         <div className="flex gap-3">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-muted hover:bg-muted/80 text-sm font-medium transition-colors"
-          >
-            GitHub Repo
-          </a>
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg gradient-bg gradient-bg-hover text-sm font-medium text-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
-          >
-            Live Demo <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+          {hasLinks ? (
+            <>
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-muted hover:bg-muted/80 text-sm font-medium transition-colors"
+                >
+                  GitHub Repo
+                </a>
+              )}
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg gradient-bg gradient-bg-hover text-sm font-medium text-foreground transition-all hover:shadow-lg hover:shadow-primary/25`}
+                >
+                  Visit Website <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
+            </>
+          ) : (
+            <Link
+              to={`/project/${project.id}`}
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg gradient-bg gradient-bg-hover text-sm font-medium text-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
+            >
+              Read Deep Dive →
+            </Link>
+          )}
         </div>
       </div>
     </motion.div>

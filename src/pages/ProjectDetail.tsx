@@ -19,6 +19,8 @@ export default function ProjectDetailPage() {
     );
   }
 
+  const hasLinks = project.githubUrl || project.demoUrl;
+
   return (
     <div className="min-h-screen bg-background">
       <div className="section-container py-8">
@@ -37,10 +39,12 @@ export default function ProjectDetailPage() {
                 <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
                   {company.company}
                 </span>
-                <span className="flex items-center gap-1 text-xs bg-background/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
-                  <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
-                  {project.stars}
-                </span>
+                {project.stars && (
+                  <span className="flex items-center gap-1 text-xs bg-background/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                    <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
+                    {project.stars}
+                  </span>
+                )}
               </div>
               <h1 className="text-3xl md:text-4xl font-heading font-bold">{project.name}</h1>
             </div>
@@ -54,13 +58,13 @@ export default function ProjectDetailPage() {
               </div>
 
               <div className="card-surface p-6">
-                <h2 className="text-lg font-heading font-semibold mb-3 gradient-text">Your Role at {company.company}</h2>
-                <p className="text-muted-foreground">{project.yourWork}</p>
+                <h2 className="text-lg font-heading font-semibold mb-3 gradient-text">My Role at {company.company}</h2>
+                <p className="text-muted-foreground leading-relaxed">{project.yourWork}</p>
               </div>
 
               <div className="card-surface p-6">
-                <h2 className="text-lg font-heading font-semibold mb-3 gradient-text">This Project Demonstrates</h2>
-                <p className="text-muted-foreground">{project.demonstrates}</p>
+                <h2 className="text-lg font-heading font-semibold mb-3 gradient-text">Impact & Results</h2>
+                <p className="text-muted-foreground leading-relaxed">{project.demonstrates}</p>
               </div>
             </div>
 
@@ -78,27 +82,33 @@ export default function ProjectDetailPage() {
                 <h3 className="font-heading font-semibold mb-4">Company Context</h3>
                 <p className="text-sm text-muted-foreground mb-1">{company.role}</p>
                 <p className="text-xs text-muted-foreground">{company.period}</p>
-                <p className="text-xs text-muted-foreground mt-1">{company.description}</p>
+                <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{company.description}</p>
               </div>
 
-              <div className="space-y-3">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-muted hover:bg-muted/80 font-medium transition-colors"
-                >
-                  View GitHub Repository
-                </a>
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg gradient-bg gradient-bg-hover font-medium text-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
-                >
-                  Try Live Demo <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
+              {hasLinks && (
+                <div className="space-y-3">
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-muted hover:bg-muted/80 font-medium transition-colors"
+                    >
+                      View GitHub Repository
+                    </a>
+                  )}
+                  {project.demoUrl && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 py-3 rounded-lg gradient-bg gradient-bg-hover font-medium text-foreground transition-all hover:shadow-lg hover:shadow-primary/25"
+                    >
+                      Visit Website <ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </motion.div>
