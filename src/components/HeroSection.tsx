@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Linkedin, ChevronDown } from "lucide-react";
 
-const techIcons = ["React", "Node.js", "AWS", "GraphQL", "Kafka", "Airflow"];
+const techIcons = ["React", "TypeScript", "Node.js", "GraphQL", "AWS", "Python"];
 
 export default function HeroSection() {
   return (

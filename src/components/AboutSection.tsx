@@ -3,11 +3,11 @@ import { useInView, useCountUp } from "@/hooks/use-in-view";
 
 const metrics = [
   { value: 11, suffix: "+", label: "Years Experience", icon: "📅" },
-  { value: 40, suffix: "%", label: "Video Processing Faster", icon: "⚡" },
-  { value: 35, suffix: "%", label: "Cold Start Reduction", icon: "🚀" },
-  { value: 200, suffix: "%", label: "Query Performance", icon: "💡" },
-  { value: 15, suffix: "min", label: "From 24hr Latency", icon: "⏱" },
-  { value: 5, suffix: "M+", label: "Companies Scaled", icon: "📊" },
+  { value: 92, suffix: "%", label: "Match Satisfaction", icon: "🎯" },
+  { value: 60, suffix: "%", label: "Faster Discovery", icon: "🚀" },
+  { value: 5, suffix: "M+", label: "Learners Served", icon: "📊" },
+  { value: 40, suffix: "%", label: "Faster Page Loads", icon: "⚡" },
+  { value: 6, suffix: "", label: "Countries Served", icon: "🌏" },
 ];
 
 function MetricCard({ value, suffix, label, icon, inView, delay }: { value: number; suffix: string; label: string; icon: string; inView: boolean; delay: number }) {
