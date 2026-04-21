@@ -25,7 +25,7 @@ export default function CompanyProjectSection({ section }: Props) {
         <p className="text-sm text-muted-foreground mt-1">{section.description}</p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {section.projects.map((p, i) => (
           <ProjectCard
             key={p.id}
