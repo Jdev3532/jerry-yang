@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const techIcons = ["React", "TypeScript", "Node.js", "GraphQL", "AWS", "Python"];
 
@@ -61,15 +61,6 @@ export default function HeroSection() {
             </a>
           </div>
 
-          <a
-            href="https://www.linkedin.com/in/jerry-l-y-b628803b6/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Linkedin className="w-5 h-5" />
-            <span className="text-sm font-medium">Connect on LinkedIn</span>
-          </a>
         </motion.div>
 
         <motion.div
