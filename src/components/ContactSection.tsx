@@ -85,7 +85,7 @@ export default function ContactSection() {
               <h3 className="font-heading font-semibold mb-4">Connect With Me</h3>
               <div className="space-y-4">
                 <a
-                  href="mailto:contact@jerryyang.dev"
+                  href="mailto:jerry.dev35@hotmail.com"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Mail className="w-5 h-5" />
