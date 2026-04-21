@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
 import { useState } from "react";
-import { Linkedin, Mail, Send } from "lucide-react";
+import { Mail, Send } from "lucide-react";
 
 export default function ContactSection() {
   const { ref, inView } = useInView(0.1);
@@ -84,15 +84,6 @@ export default function ContactSection() {
             <div className="card-surface p-6">
               <h3 className="font-heading font-semibold mb-4">Connect With Me</h3>
               <div className="space-y-4">
-                <a
-                  href="https://www.linkedin.com/in/jerry-l-y-b628803b6/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                  <span>LinkedIn Profile</span>
-                </a>
                 <a
                   href="mailto:contact@jerryyang.dev"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"

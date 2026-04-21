@@ -1,5 +1,3 @@
-import { Linkedin } from "lucide-react";
-
 export default function FooterSection() {
   return (
     <footer className="py-12 border-t border-border">
@@ -16,15 +14,6 @@ export default function FooterSection() {
             <a href="#projects" className="hover:text-foreground transition-colors">Projects</a>
             <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
           </nav>
-
-          <a
-            href="https://www.linkedin.com/in/jerry-l-y-b628803b6/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
         </div>
       </div>
     </footer>
