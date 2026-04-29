@@ -14,6 +14,21 @@ export type Database = {
   }
   public: {
     Tables: {
+      visitor_daily_stats: {
+        Row: {
+          count: number
+          visit_date: string
+        }
+        Insert: {
+          count?: number
+          visit_date: string
+        }
+        Update: {
+          count?: number
+          visit_date?: string
+        }
+        Relationships: []
+      }
       visitor_stats: {
         Row: {
           count: number
