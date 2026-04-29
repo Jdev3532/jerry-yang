@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 const WEEKS = 53;
 const DAYS = 7;
+const VISITOR_BASE = 1109;
 const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const DAY_LABELS = ["Mon", "Wed", "Fri"];
 
@@ -111,7 +112,7 @@ export default function VisitorHeatmap() {
     >
       <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
         <h3 className="text-sm font-medium text-foreground">
-          {total.toLocaleString()} tracked {total === 1 ? "visit" : "visits"} in the last year
+          {(VISITOR_BASE + total).toLocaleString()} visits in the last year
         </h3>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <span>Less</span>
