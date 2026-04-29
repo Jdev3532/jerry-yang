@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useInView, useCountUp } from "@/hooks/use-in-view";
 import { supabase } from "@/integrations/supabase/client";
+import VisitorHeatmap from "./VisitorHeatmap";
 
 const VISITOR_BASE = 1109;
 
@@ -91,6 +92,10 @@ export default function AboutSection() {
             inView={inView && visitors !== null}
             delay={0.1 + metrics.length * 0.1}
           />
+        </div>
+
+        <div className="mt-8">
+          <VisitorHeatmap />
         </div>
       </div>
     </section>
