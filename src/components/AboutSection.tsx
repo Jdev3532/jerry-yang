@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useInView, useCountUp } from "@/hooks/use-in-view";
 import { supabase } from "@/integrations/supabase/client";
 import VisitorHeatmap from "./VisitorHeatmap";
-
-const VISITOR_BASE = 1109;
 
 const metrics = [
   { value: 11, suffix: "+", label: "Years Experience", icon: "📅" },
@@ -33,34 +31,21 @@ function MetricCard({ value, suffix, label, icon, inView, delay }: { value: numb
 
 export default function AboutSection() {
   const { ref, inView } = useInView(0.1);
-  const [visitors, setVisitors] = useState<number | null>(null);
 
   useEffect(() => {
-    let cancelled = false;
     const run = async () => {
       try {
         const sessionKey = "visitor_counted";
         const alreadyCounted = sessionStorage.getItem(sessionKey);
         if (!alreadyCounted) {
-          const { data, error } = await supabase.rpc("increment_visitor_count");
-          if (!error && typeof data === "number") {
+          const { error } = await supabase.rpc("increment_visitor_count");
+          if (!error) {
             sessionStorage.setItem(sessionKey, "1");
-            if (!cancelled) setVisitors(VISITOR_BASE + data);
-            return;
           }
         }
-        const { data: row } = await supabase
-          .from("visitor_stats")
-          .select("count")
-          .eq("id", 1)
-          .maybeSingle();
-        if (!cancelled) setVisitors(VISITOR_BASE + Number(row?.count ?? 0));
-      } catch {
-        if (!cancelled) setVisitors(VISITOR_BASE);
-      }
+      } catch { /* noop */ }
     };
     run();
-    return () => { cancelled = true; };
   }, []);
 
   return (
@@ -80,18 +65,10 @@ export default function AboutSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {metrics.map((m, i) => (
             <MetricCard key={m.label} {...m} inView={inView} delay={0.1 + i * 0.1} />
           ))}
-          <MetricCard
-            value={visitors ?? VISITOR_BASE}
-            suffix=""
-            label="Visitors"
-            icon="👀"
-            inView={inView && visitors !== null}
-            delay={0.1 + metrics.length * 0.1}
-          />
         </div>
 
         <div className="mt-8">
