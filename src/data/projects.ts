@@ -139,6 +139,24 @@ export const companySections: CompanySection[] = [
     ],
   },
   {
+    company: "BASH Technologies, Inc.",
+    role: "Software Engineer",
+    period: "Jun 2017 - Aug 2017",
+    location: "San Francisco / Remote",
+    description: "Early-stage SF startup building developer tooling and automation infrastructure — a summer engineering rotation focused on shipping production features inside a small, fast-moving team.",
+    projects: [
+      {
+        id: "bash-platform",
+        name: "Developer Automation Platform",
+        description: "Internal automation platform that orchestrated repeatable developer workflows — job scheduling, run history, and a clean web console used by the team to operate services without writing one-off scripts.",
+        yourWork: "Built end-to-end features across the stack: a React-based job console, the Node.js API and worker model behind it, and the PostgreSQL schema that captured run state and audit history. Owned reliability of the worker queue and added observability so failures were debuggable instead of mysterious.",
+        demonstrates: "Startup pace and end-to-end ownership early in my career — picking up an unfamiliar codebase, shipping production features in weeks, and learning the operational discipline that later carried into AI product work.",
+        technologies: ["React", "Node.js", "PostgreSQL", "Redis", "REST APIs", "AWS"],
+        image: "/images/bash-platform.png",
+      },
+    ],
+  },
+  {
     company: "Mindvalley",
     role: "Senior Full-Stack Engineer",
     period: "Jan 2015 - Dec 2017",
