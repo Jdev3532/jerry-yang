@@ -15,6 +15,7 @@ export interface CompanySection {
   company: string;
   role: string;
   period: string;
+  location?: string;
   description: string;
   projects: Project[];
 }
@@ -22,8 +23,9 @@ export interface CompanySection {
 export const companySections: CompanySection[] = [
   {
     company: "Turo",
-    role: "Senior Software Engineer",
-    period: "Mar 2023 - Present",
+    role: "Senior AI Engineer",
+    period: "Nov 2024 - Present",
+    location: "Gentry, AR",
     description: "World's largest car-sharing marketplace — building AI-powered customer experience systems that handle millions of host and guest interactions across multiple languages and regions.",
     projects: [
       {
@@ -60,8 +62,9 @@ export const companySections: CompanySection[] = [
   },
   {
     company: "Amazon",
-    role: "Software Development Engineer",
-    period: "Jul 2021 - Feb 2023",
+    role: "Senior AI Engineer",
+    period: "Feb 2020 - Aug 2024",
+    location: "Seattle, WA",
     description: "Generative AI shopping experience powering Amazon Rufus — the conversational assistant that helps hundreds of millions of customers research products, compare options, and make confident buying decisions worldwide.",
     projects: [
       {
@@ -97,9 +100,10 @@ export const companySections: CompanySection[] = [
     ],
   },
   {
-    company: "HUNTER",
-    role: "Senior Full-Stack Engineer",
-    period: "Aug 2020 - Jun 2021",
+    company: "HUNTER Digital",
+    role: "Software Engineer",
+    period: "Jun 2019 - Aug 2019",
+    location: "New York, NY",
     description: "Email outreach and B2B intelligence platform — building the public Hunter API that powers email discovery, verification, and data enrichment for tens of thousands of sales, marketing, and recruiting teams.",
     projects: [
       {
@@ -137,7 +141,8 @@ export const companySections: CompanySection[] = [
   {
     company: "Mindvalley",
     role: "Senior Full-Stack Engineer",
-    period: "Jan 2018 - Jul 2020",
+    period: "Jan 2015 - Dec 2017",
+    location: "Kuala Lumpur, Malaysia",
     description: "Premium personal-growth learning platform serving millions of learners — Mindvalley.com is live and uses the video learning platform built during this period.",
     projects: [
       {
@@ -164,8 +169,9 @@ export const companySections: CompanySection[] = [
   },
   {
     company: "Grab",
-    role: "Software Engineer",
-    period: "Jan 2016 - Dec 2017",
+    role: "Full Stack Developer (Intern)",
+    period: "Jan 2014 - Dec 2014",
+    location: "Kuala Lumpur, Malaysia",
     description: "Southeast Asia's leading super-app — Grab.com processes millions of transactions daily through ride-hailing, food delivery, and payments systems built on the infrastructure contributed to during this period.",
     projects: [
       {
