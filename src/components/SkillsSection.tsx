@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
 
 const skillCategories = [
-  { name: "Frontend", skills: ["React", "React Native", "Next.js", "Angular", "TypeScript", "JavaScript", "Redux", "D3.js", "HTML5", "CSS3", "Tailwind"] },
-  { name: "Backend", skills: ["Node.js (Express, NestJS)", "Python (Flask, FastAPI)", "GraphQL (Apollo)", "REST APIs", "Microservices"] },
-  { name: "Databases", skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "DynamoDB", "Elasticsearch"] },
-  { name: "Data Engineering", skills: ["Apache Airflow", "Kafka", "pandas", "NumPy", "AWS Redshift"] },
-  { name: "Cloud & DevOps", skills: ["AWS (EC2, S3, Lambda, ECS, CloudFront, MediaConvert)", "Docker", "CI/CD", "Terraform", "Kubernetes", "Jenkins"] },
-  { name: "AI/ML", skills: ["OpenAI API", "LangChain", "Python (scikit-learn, pandas)"] },
-  { name: "Testing", skills: ["Jest", "React Testing Library", "Cypress", "Jasmine", "Karma", "PyTest"] },
-  { name: "Monitoring", skills: ["Datadog", "New Relic", "Sentry"] },
-  { name: "Tools", skills: ["Git", "Jira", "Confluence", "Figma", "Slack", "Notion", "Agile/Scrum"] },
+  { name: "AI & LLMs", skills: ["OpenAI GPT-4/5", "Anthropic Claude", "Google Gemini", "LangChain", "LlamaIndex", "Function Calling", "Streaming", "Prompt Engineering"] },
+  { name: "RAG & Retrieval", skills: ["Vector Search", "OpenSearch", "Pinecone", "pgvector", "Hybrid Search", "Re-ranking", "Embeddings", "Chunking Strategies"] },
+  { name: "AI Evaluation & Ops", skills: ["LLM Evals", "Hallucination Scoring", "Citation Accuracy", "A/B Testing", "Prompt Versioning", "Observability"] },
+  { name: "Frontend", skills: ["React", "Next.js", "TypeScript", "Streaming UI", "WebSockets", "Tailwind", "Framer Motion"] },
+  { name: "Backend", skills: ["Node.js (NestJS, Express)", "Python (FastAPI)", "GraphQL", "REST APIs", "Edge Functions", "Microservices"] },
+  { name: "Data & Storage", skills: ["PostgreSQL", "Redis", "MongoDB", "DynamoDB", "Elasticsearch", "Kafka"] },
+  { name: "Cloud & DevOps", skills: ["AWS (Lambda, ECS, S3, Bedrock)", "Docker", "Kubernetes", "Terraform", "CI/CD"] },
+  { name: "ML Tooling", skills: ["Python", "pandas", "NumPy", "scikit-learn", "Hugging Face", "Jupyter"] },
+  { name: "Monitoring & QA", skills: ["Datadog", "Sentry", "Jest", "PyTest", "Playwright"] },
 ];
 
 export default function SkillsSection() {

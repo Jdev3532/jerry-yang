@@ -1,37 +1,37 @@
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/use-in-view";
-import { Rocket, Video, Database, Share2, Smartphone, Cloud } from "lucide-react";
+import { Sparkles, Bot, Database, MessageSquare, LineChart, Globe } from "lucide-react";
 
 const services = [
   {
-    icon: Rocket,
-    title: "AI-Powered Platform Engineering",
-    description: "Built AI talent matching engines at Andela with ML-powered recommendations, achieving 92% satisfaction rates and reducing time-to-hire from weeks to days.",
-  },
-  {
-    icon: Share2,
-    title: "E-Commerce & API Architecture",
-    description: "Designed GraphQL Storefront APIs and multi-storefront architectures at BigCommerce, powering headless commerce for thousands of enterprise merchants.",
+    icon: Sparkles,
+    title: "Generative AI Product Engineering",
+    description: "Shipped Amazon Rufus and Turo's AI Help Center to hundreds of millions of users — streaming chat UX, prompt orchestration, and product surfaces that turn LLMs into trusted assistants.",
   },
   {
     icon: Database,
-    title: "Search & Data Infrastructure",
-    description: "Built high-performance search engines at Zocdoc and BigCommerce with Elasticsearch, reducing query latency by 85% and improving conversion rates.",
+    title: "RAG & Retrieval Pipelines",
+    description: "Designed retrieval-augmented generation stacks grounded in real product data — hybrid keyword + vector search, re-ranking, and citation-backed answers with strict hallucination guardrails.",
   },
   {
-    icon: Smartphone,
-    title: "Healthcare & Real-Time Systems",
-    description: "Architected HIPAA-compliant telehealth with WebRTC at Zocdoc, scaling to hundreds of thousands of monthly virtual visits with real-time video consultations.",
+    icon: Bot,
+    title: "Virtual Agents & Support Automation",
+    description: "Integrated UJET's AI Virtual Agent at Turo with customer context injection and intent-to-action mapping — automating triage and account operations while keeping CSAT high.",
   },
   {
-    icon: Video,
-    title: "EdTech & Social Learning",
-    description: "Built AI-powered learning management systems at OpenLearning serving 5M+ learners across 231+ institutions with gamification and peer collaboration.",
+    icon: LineChart,
+    title: "LLM Evaluation & Observability",
+    description: "Built evaluation harnesses scoring relevance, hallucination rate, and citation accuracy across millions of queries — the feedback loop that turns prompt and model changes into measurable wins.",
   },
   {
-    icon: Cloud,
-    title: "Marketplace & Scalable Commerce",
-    description: "Developed high-traffic e-commerce platforms at Lazada serving millions of daily shoppers across 6 Southeast Asian countries with multi-language support.",
+    icon: MessageSquare,
+    title: "Conversational UX at Scale",
+    description: "Production streaming chat interfaces with optimistic rendering, inline citations, feedback loops, and live agent handoff — the UI layer that makes LLM products feel reliable.",
+  },
+  {
+    icon: Globe,
+    title: "Multilingual & Global AI Rollouts",
+    description: "Localized AI products across English, French, Spanish, German, and Italian — locale-aware prompts, region-specific guardrails, and rollout pipelines proven on Rufus UK and Turo EU.",
   },
 ];
 

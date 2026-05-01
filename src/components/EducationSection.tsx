@@ -32,7 +32,7 @@ export default function EducationSection() {
             <span className="gradient-text">Education</span>
           </h2>
           <p className="text-muted-foreground">
-            Formal training that grounds 11+ years of building production software.
+            CS foundations that ground 11+ years of building production software and AI products.
           </p>
         </motion.div>
 

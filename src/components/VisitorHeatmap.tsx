@@ -33,6 +33,7 @@ const LEVEL_CLASSES = [
 export default function VisitorHeatmap() {
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [year, setYear] = useState<number>(AVAILABLE_YEARS[0]);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -53,6 +54,23 @@ export default function VisitorHeatmap() {
       setCounts(map);
     };
     load();
+    return () => { cancelled = true; };
+  }, [refreshKey]);
+
+  // Record a visit on mount, then refresh the heatmap so today's cell updates immediately.
+  useEffect(() => {
+    let cancelled = false;
+    const record = async () => {
+      try {
+        const sessionKey = "heatmap_visit_counted";
+        if (sessionStorage.getItem(sessionKey)) return;
+        const { error } = await supabase.rpc("increment_visitor_count");
+        if (error) return;
+        sessionStorage.setItem(sessionKey, "1");
+        if (!cancelled) setRefreshKey((k) => k + 1);
+      } catch { /* noop */ }
+    };
+    record();
     return () => { cancelled = true; };
   }, []);
 
