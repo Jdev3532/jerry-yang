@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-const techIcons = ["React", "TypeScript", "Node.js", "GraphQL", "AWS", "Python"];
+const techIcons = ["LLMs", "RAG", "Python", "TypeScript", "React", "AWS"];
 
 export default function HeroSection() {
   return (
@@ -39,11 +39,11 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-xl md:text-2xl font-heading font-medium text-muted-foreground mb-4">
-            Founding Engineer · Full-Stack Architect · Startup Builder
+            AI Engineer · LLM Product Builder · Full-Stack Architect
           </p>
 
           <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-            11+ years building scalable platforms from 0 to 1
+            Shipping production LLM products — Amazon Rufus, Turo AI Help — to hundreds of millions of users
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">

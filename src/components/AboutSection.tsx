@@ -1,16 +1,14 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import { useInView, useCountUp } from "@/hooks/use-in-view";
-import { supabase } from "@/integrations/supabase/client";
 import VisitorHeatmap from "./VisitorHeatmap";
 
 const metrics = [
-  { value: 11, suffix: "+", label: "Years Experience", icon: "📅" },
-  { value: 92, suffix: "%", label: "Match Satisfaction", icon: "🎯" },
-  { value: 60, suffix: "%", label: "Faster Discovery", icon: "🚀" },
-  { value: 5, suffix: "M+", label: "Learners Served", icon: "📊" },
-  { value: 40, suffix: "%", label: "Faster Page Loads", icon: "⚡" },
-  { value: 6, suffix: "", label: "Countries Served", icon: "🌏" },
+  { value: 11, suffix: "+", label: "Years Engineering", icon: "📅" },
+  { value: 5, suffix: "+", label: "AI Products Shipped", icon: "🤖" },
+  { value: 70, suffix: "%", label: "Ticket Deflection", icon: "🎯" },
+  { value: 100, suffix: "M+", label: "AI Conversations", icon: "💬" },
+  { value: 40, suffix: "%", label: "Lower Latency", icon: "⚡" },
+  { value: 6, suffix: "", label: "Languages Supported", icon: "🌏" },
 ];
 
 function MetricCard({ value, suffix, label, icon, inView, delay }: { value: number; suffix: string; label: string; icon: string; inView: boolean; delay: number }) {
@@ -32,22 +30,6 @@ function MetricCard({ value, suffix, label, icon, inView, delay }: { value: numb
 export default function AboutSection() {
   const { ref, inView } = useInView(0.1);
 
-  useEffect(() => {
-    const run = async () => {
-      try {
-        const sessionKey = "visitor_counted";
-        const alreadyCounted = sessionStorage.getItem(sessionKey);
-        if (!alreadyCounted) {
-          const { error } = await supabase.rpc("increment_visitor_count");
-          if (!error) {
-            sessionStorage.setItem(sessionKey, "1");
-          }
-        }
-      } catch { /* noop */ }
-    };
-    run();
-  }, []);
-
   return (
     <section id="about" className="py-24" ref={ref}>
       <div className="section-container">
@@ -61,7 +43,7 @@ export default function AboutSection() {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Results-oriented Technology Leader with over 11 years of full-stack development and startup engineering experience. As a Founding Engineer, I thrive in fast-paced, ambiguous environments—wearing multiple hats across frontend, backend, cloud infrastructure, and product strategy. I'm passionate about building scalable platforms from 0 to 1, mentoring engineering teams, and driving technical growth in resource-constrained settings.
+            AI Engineer with 11+ years building production software and 4+ years shipping LLM-powered products at scale. I've contributed to Amazon Rufus (generative shopping for hundreds of millions of customers) and Turo's AI Help Center & Virtual Agent (deflecting the majority of support tickets). I focus on the full AI product stack: RAG pipelines, prompt orchestration, evaluation harnesses, streaming chat UX, and the latency, cost, and trust guarantees needed to put LLMs in front of real users.
           </p>
         </motion.div>
 

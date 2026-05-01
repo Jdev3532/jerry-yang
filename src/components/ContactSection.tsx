@@ -26,7 +26,7 @@ export default function ContactSection() {
           Get In <span className="gradient-text">Touch</span>
         </motion.h2>
         <p className="text-center text-muted-foreground mb-12">
-          Open to Founding Engineer opportunities
+          Open to AI Engineer & Founding Engineer opportunities
         </p>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
@@ -97,7 +97,7 @@ export default function ContactSection() {
             <div className="card-surface p-6">
               <h3 className="font-heading font-semibold mb-2">Looking For</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Founding Engineer / Lead Engineer roles at startups building ambitious products. I bring 11+ years of full-stack experience, a proven track record scaling platforms from 0 to millions of users, and a passion for shipping fast in resource-constrained environments.
+                AI Engineer, Founding AI Engineer, or Lead Engineer roles at teams building ambitious LLM-powered products. I bring 11+ years of full-stack experience, hands-on production work on Amazon Rufus and Turo's AI assistant, and the end-to-end skills to take an AI product from prototype to millions of users.
               </p>
             </div>
           </motion.div>
