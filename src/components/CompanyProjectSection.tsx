@@ -21,6 +21,7 @@ export default function CompanyProjectSection({ section }: Props) {
         </h3>
         <p className="text-muted-foreground mt-2">
           {section.role} · {section.period}
+          {section.location ? ` · ${section.location}` : ""}
         </p>
         <p className="text-sm text-muted-foreground mt-1">{section.description}</p>
       </motion.div>
