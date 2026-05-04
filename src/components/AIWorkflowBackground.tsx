@@ -2,12 +2,10 @@ import { motion } from "framer-motion";
 
 /**
  * Animated AI workflow diagram used as a hero background.
- * Depicts: User Query → Embeddings → Vector DB / Retrieval → LLM (with Tools)
- *          → Guardrails / Eval → Response, with a feedback loop.
- * Pure SVG, theme-aware via currentColor + HSL tokens.
+ * Bold, high-impact version: glowing nodes, thick gradient edges,
+ * pulsing halos, bright animated data packets.
  */
 export default function AIWorkflowBackground() {
-  // Node positions on a 1200x600 viewBox
   const nodes = [
     { id: "user", x: 90, y: 300, label: "User Query", sub: "prompt" },
     { id: "embed", x: 290, y: 300, label: "Embeddings", sub: "text-embed-3" },
@@ -35,20 +33,31 @@ export default function AIWorkflowBackground() {
       <svg
         viewBox="0 0 1200 600"
         preserveAspectRatio="xMidYMid slice"
-        className="w-full h-full opacity-[0.22]"
+        className="w-full h-full opacity-90"
       >
         <defs>
           <linearGradient id="edgeGrad" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="hsl(225 84% 55%)" />
-            <stop offset="100%" stopColor="hsl(270 60% 55%)" />
+            <stop offset="0%" stopColor="hsl(225 95% 65%)" />
+            <stop offset="50%" stopColor="hsl(250 90% 70%)" />
+            <stop offset="100%" stopColor="hsl(285 90% 70%)" />
           </linearGradient>
           <radialGradient id="nodeGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="hsl(225 84% 55% / 0.5)" />
-            <stop offset="100%" stopColor="hsl(270 60% 55% / 0.05)" />
+            <stop offset="0%" stopColor="hsl(225 95% 60% / 0.95)" />
+            <stop offset="60%" stopColor="hsl(270 80% 55% / 0.45)" />
+            <stop offset="100%" stopColor="hsl(285 80% 50% / 0.05)" />
           </radialGradient>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3" result="b" />
+          <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="6" result="b" />
             <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="12" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
               <feMergeNode in="b" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
@@ -56,7 +65,7 @@ export default function AIWorkflowBackground() {
         </defs>
 
         {/* Subtle grid */}
-        <g stroke="hsl(0 0% 100% / 0.04)" strokeWidth="1">
+        <g stroke="hsl(225 60% 70% / 0.08)" strokeWidth="1">
           {Array.from({ length: 13 }).map((_, i) => (
             <line key={`v${i}`} x1={i * 100} y1={0} x2={i * 100} y2={600} />
           ))}
@@ -77,14 +86,14 @@ export default function AIWorkflowBackground() {
                 d={path}
                 fill="none"
                 stroke="url(#edgeGrad)"
-                strokeWidth="1.5"
-                strokeOpacity="0.5"
-              />
-              {/* Animated packet */}
-              <motion.circle
-                r="4"
-                fill="hsl(225 84% 65%)"
+                strokeWidth="3.5"
+                strokeOpacity="0.95"
                 filter="url(#glow)"
+              />
+              <motion.circle
+                r="8"
+                fill="hsl(195 100% 75%)"
+                filter="url(#strongGlow)"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: [0, 1, 1, 0] }}
                 transition={{
@@ -105,23 +114,25 @@ export default function AIWorkflowBackground() {
           );
         })}
 
-        {/* Feedback loop arc: out -> user */}
+        {/* Feedback loop arc */}
         <path
           d="M 1130 300 C 1130 560, 90 560, 90 300"
           fill="none"
-          stroke="hsl(160 84% 45%)"
-          strokeWidth="1"
-          strokeDasharray="4 6"
-          strokeOpacity="0.45"
+          stroke="hsl(160 90% 55%)"
+          strokeWidth="2.5"
+          strokeDasharray="6 8"
+          strokeOpacity="0.9"
+          filter="url(#glow)"
         />
         <text
           x="610"
           y="555"
           textAnchor="middle"
-          fill="hsl(160 84% 55%)"
-          fontSize="11"
+          fill="hsl(160 90% 65%)"
+          fontSize="13"
+          fontWeight="600"
           fontFamily="JetBrains Mono, monospace"
-          opacity="0.7"
+          opacity="1"
         >
           feedback · evals · fine-tune
         </text>
@@ -134,38 +145,49 @@ export default function AIWorkflowBackground() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.15 * i, duration: 0.5 }}
           >
-            <circle
+            <motion.circle
               cx={n.x}
               cy={n.y}
-              r="38"
-              fill="url(#nodeGrad)"
-              stroke="hsl(225 84% 60% / 0.5)"
+              fill="hsl(225 90% 60% / 0.15)"
+              stroke="hsl(225 90% 65% / 0.5)"
               strokeWidth="1"
-              filter="url(#glow)"
+              animate={{ r: [46, 60, 46], opacity: [0.7, 0.2, 0.7] }}
+              transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.2 }}
             />
             <circle
               cx={n.x}
               cy={n.y}
-              r="6"
-              fill="hsl(225 84% 65%)"
+              r="40"
+              fill="url(#nodeGrad)"
+              stroke="hsl(225 95% 70%)"
+              strokeWidth="2"
+              filter="url(#strongGlow)"
+            />
+            <circle
+              cx={n.x}
+              cy={n.y}
+              r="8"
+              fill="hsl(195 100% 80%)"
+              filter="url(#glow)"
             />
             <text
               x={n.x}
-              y={n.y - 50}
+              y={n.y - 55}
               textAnchor="middle"
-              fill="hsl(0 0% 95%)"
-              fontSize="13"
+              fill="hsl(0 0% 100%)"
+              fontSize="15"
+              fontWeight="700"
               fontFamily="Space Grotesk, sans-serif"
-              fontWeight="600"
             >
               {n.label}
             </text>
             <text
               x={n.x}
-              y={n.y + 60}
+              y={n.y + 65}
               textAnchor="middle"
-              fill="hsl(0 0% 70%)"
-              fontSize="10"
+              fill="hsl(225 60% 85%)"
+              fontSize="11"
+              fontWeight="500"
               fontFamily="JetBrains Mono, monospace"
             >
               {n.sub}
@@ -174,9 +196,9 @@ export default function AIWorkflowBackground() {
         ))}
       </svg>
 
-      {/* Fade overlays so the diagram never competes with hero text */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
+      {/* Lighter fade overlays so the diagram stays prominent */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/30 to-background/80" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
     </div>
   );
 }
