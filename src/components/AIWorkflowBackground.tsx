@@ -33,7 +33,7 @@ export default function AIWorkflowBackground() {
       <svg
         viewBox="0 0 1200 600"
         preserveAspectRatio="xMidYMid slice"
-        className="w-full h-full opacity-90"
+        className="w-full h-full opacity-50"
       >
         <defs>
           <linearGradient id="edgeGrad" x1="0" x2="1" y1="0" y2="0">
@@ -196,9 +196,9 @@ export default function AIWorkflowBackground() {
         ))}
       </svg>
 
-      {/* Lighter fade overlays so the diagram stays prominent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/30 to-background/80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
+      {/* Fade overlays so foreground text stays readable */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/60 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/30 to-background/70" />
     </div>
   );
 }
