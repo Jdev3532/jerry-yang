@@ -1,15 +1,11 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import AIWorkflowBackground from "./AIWorkflowBackground";
 
 const techIcons = ["LLMs", "RAG", "Python", "TypeScript", "React", "AWS"];
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* AI workflow diagram background */}
-      <AIWorkflowBackground />
-
       {/* Background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[120px] animate-float" />
