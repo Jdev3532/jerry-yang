@@ -7,19 +7,26 @@ import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
+import AIWorkflowBackground from "@/components/AIWorkflowBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <EducationSection />
-      <ContactSection />
-      <FooterSection />
+    <div className="relative min-h-screen bg-background">
+      {/* Site-wide animated AI workflow background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <AIWorkflowBackground />
+      </div>
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <EducationSection />
+        <ContactSection />
+        <FooterSection />
+      </div>
     </div>
   );
 };
