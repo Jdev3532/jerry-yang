@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageCircle, Send, X, Sparkles } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -150,7 +151,25 @@ const ResumeChatBot = () => {
                     : "bg-muted text-foreground rounded-bl-sm"
                 )}
               >
-                {m.content}
+                {m.role === "assistant" ? (
+                  <ReactMarkdown
+                    components={{
+                      p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                      strong: ({ children }) => <span>{children}</span>,
+                      em: ({ children }) => <span>{children}</span>,
+                      ul: ({ children }) => <div className="space-y-1">{children}</div>,
+                      ol: ({ children }) => <div className="space-y-1">{children}</div>,
+                      li: ({ children }) => <div>{children}</div>,
+                      h1: ({ children }) => <p className="mb-2">{children}</p>,
+                      h2: ({ children }) => <p className="mb-2">{children}</p>,
+                      h3: ({ children }) => <p className="mb-2">{children}</p>,
+                    }}
+                  >
+                    {m.content}
+                  </ReactMarkdown>
+                ) : (
+                  m.content
+                )}
               </div>
             ))}
             {loading && messages[messages.length - 1]?.role === "user" && (
