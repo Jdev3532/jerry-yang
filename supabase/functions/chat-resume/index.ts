@@ -1,4 +1,8 @@
-import { corsHeaders } from "@supabase/supabase-js/cors";
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
+};
 
 const RESUME_CONTEXT = `
 You are Jerry Yang's personal AI assistant on his portfolio site. Answer questions about Jerry's professional background, experience, skills, and projects. Be concise, friendly, and confident. If asked something not covered, say you don't have that info and suggest contacting Jerry.
