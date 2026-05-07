@@ -8,9 +8,9 @@ const DAY_LABELS = ["Mon", "Wed", "Fri"];
 const AVAILABLE_YEARS = [new Date().getFullYear(), new Date().getFullYear() - 1];
 
 function toISODate(d: Date) {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
+  const y = d.getUTCFullYear();
+  const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(d.getUTCDate()).padStart(2, "0");
   return `${y}-${m}-${day}`;
 }
 
@@ -76,16 +76,16 @@ export default function VisitorHeatmap() {
 
   // Build a full-year grid for the selected year
   const { grid, monthMarkers, yearTotal } = useMemo(() => {
-    const start = new Date(year, 0, 1);
-    const end = new Date(year, 11, 31);
+    const start = new Date(Date.UTC(year, 0, 1));
+    const end = new Date(Date.UTC(year, 11, 31));
     // Pad start to previous Monday
-    const startDow = (start.getDay() + 6) % 7; // 0=Mon..6=Sun
+    const startDow = (start.getUTCDay() + 6) % 7; // 0=Mon..6=Sun
     const gridStart = new Date(start);
-    gridStart.setDate(start.getDate() - startDow);
+    gridStart.setUTCDate(start.getUTCDate() - startDow);
     // Pad end to next Sunday
-    const endDow = (end.getDay() + 6) % 7;
+    const endDow = (end.getUTCDay() + 6) % 7;
     const gridEnd = new Date(end);
-    gridEnd.setDate(end.getDate() + (6 - endDow));
+    gridEnd.setUTCDate(end.getUTCDate() + (6 - endDow));
 
     const totalDays = Math.round((gridEnd.getTime() - gridStart.getTime()) / 86400000) + 1;
     const weeks = totalDays / DAYS;
@@ -96,9 +96,9 @@ export default function VisitorHeatmap() {
       const col: { date: Date; iso: string; count: number; inYear: boolean }[] = [];
       for (let d = 0; d < DAYS; d++) {
         const cur = new Date(gridStart);
-        cur.setDate(gridStart.getDate() + w * DAYS + d);
+        cur.setUTCDate(gridStart.getUTCDate() + w * DAYS + d);
         const iso = toISODate(cur);
-        const inYear = cur.getFullYear() === year;
+        const inYear = cur.getUTCFullYear() === year;
         const c = counts[iso] ?? 0;
         if (inYear) sum += c;
         col.push({ date: cur, iso, count: c, inYear });
@@ -111,7 +111,7 @@ export default function VisitorHeatmap() {
     cols.forEach((col, w) => {
       const firstInYear = col.find((c) => c.inYear);
       if (!firstInYear) return;
-      const m = firstInYear.date.getMonth();
+      const m = firstInYear.date.getUTCMonth();
       if (m !== lastMonth) {
         markers.push({ week: w, label: MONTH_LABELS[m] });
         lastMonth = m;
@@ -122,9 +122,9 @@ export default function VisitorHeatmap() {
   }, [counts, year]);
 
   const isFuture = (d: Date) => {
-    const today = new Date();
-    today.setHours(23, 59, 59, 999);
-    return d.getTime() > today.getTime();
+    const now = new Date();
+    const todayUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 59, 59, 999);
+    return d.getTime() > todayUTC;
   };
 
   return (
