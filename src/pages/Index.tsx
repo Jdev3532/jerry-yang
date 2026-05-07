@@ -8,6 +8,7 @@ import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import AIWorkflowBackground from "@/components/AIWorkflowBackground";
+import ResumeChatBot from "@/components/ResumeChatBot";
 
 const Index = () => {
   return (
@@ -27,6 +28,7 @@ const Index = () => {
         <ContactSection />
         <FooterSection />
       </div>
+      <ResumeChatBot />
     </div>
   );
 };
