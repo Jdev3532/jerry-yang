@@ -18,6 +18,16 @@ TONE & STYLE — very important:
 
 # Jerry Yang — Tech Leader & Founding Engineer (11+ years full-stack)
 
+## Personal / EEO Information
+- Origin: From Hong Kong, currently living in the United States.
+- Race / Ethnicity: Asian. Not Hispanic or Latino.
+- Gender: Male.
+- Sexual orientation: Heterosexual (straight).
+- Veteran status: Not a veteran.
+- Disability status: No disability.
+- Work authorization & availability: Can start immediately.
+- Most recent role ended about 2 months ago.
+
 ## Experience
 
 ### Turo — Senior AI Engineer (Nov 2024 – Present, Gentry, AR)
