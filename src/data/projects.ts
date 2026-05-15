@@ -62,7 +62,7 @@ export const companySections: CompanySection[] = [
   },
   {
     company: "Amazon",
-    role: "Senior AI Engineer",
+    role: "Artificial Inteliigence Engineer",
     period: "Feb 2020 - Aug 2024",
     location: "Seattle, WA",
     description: "Generative AI shopping experience powering Amazon Rufus — the conversational assistant that helps hundreds of millions of customers research products, compare options, and make confident buying decisions worldwide.",
@@ -102,7 +102,7 @@ export const companySections: CompanySection[] = [
   {
     company: "HUNTER Digital",
     role: "Software Engineer",
-    period: "Jun 2019 - Aug 2019",
+    period: "Feb 2019 - Nov 2019",
     location: "New York, NY",
     description: "Email outreach and B2B intelligence platform — building the public Hunter API that powers email discovery, verification, and data enrichment for tens of thousands of sales, marketing, and recruiting teams.",
     projects: [
@@ -141,7 +141,7 @@ export const companySections: CompanySection[] = [
   {
     company: "BASH Technologies, Inc.",
     role: "Software Engineer",
-    period: "Jun 2017 - Aug 2017",
+    period: "Jun 2017 - Aug 2018",
     location: "San Francisco / Remote",
     description: "Early-stage SF startup building developer tooling and automation infrastructure — a summer engineering rotation focused on shipping production features inside a small, fast-moving team.",
     projects: [
